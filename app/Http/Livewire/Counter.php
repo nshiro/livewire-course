@@ -7,6 +7,7 @@ use Livewire\Component;
 class Counter extends Component
 {
     public $counter = 0;
+    private $name = 'shiro';
 
     public function increment(int $num = 1)
     {
