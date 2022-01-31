@@ -8,6 +8,7 @@ use Livewire\Component;
 class PostList extends Component
 {
     public $posts;
+    public $word;
 
     public function mount()
     {
