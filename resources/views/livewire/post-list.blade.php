@@ -10,4 +10,8 @@
         </li>
         @endforeach
     </ul>
+
+    <div>
+        {{ $posts->links() }}
+    </div>
 </div>
