@@ -11,16 +11,17 @@ class PostList extends Component
     use WithPagination;
 
     public $word;
-    public $title;
-    public $body;
+    // public $title;
+    // public $body;
+    public $post = [];
 
     protected $queryString = [
         'word' => ['except' => ''],
     ];
 
     protected $rules = [
-        'title' => ['required', 'max:8'],
-        'body' => ['required'],
+        'post.title' => ['required', 'max:8'],
+        'post.body' => ['required'],
     ];
 
     public function updatingWord()
@@ -37,10 +38,12 @@ class PostList extends Component
     {
         $data = $this->validate();
 
-        Post::create($data);
+        Post::create($data['post']);
 
-        $this->title = '';
-        $this->body = '';
+        $this->reset('post');
+
+        // $this->title = '';
+        // $this->body = '';
 
         // $this->reset(['title', 'body']);
         // $this->reset(); // 全ての public プロパティをリセットする
