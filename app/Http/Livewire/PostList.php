@@ -13,7 +13,8 @@ class PostList extends Component
     public $word;
     // public $title;
     // public $body;
-    public $post = [];
+    // public $post = [];
+    public Post $post;
 
     protected $queryString = [
         'word' => ['except' => ''],
@@ -23,6 +24,11 @@ class PostList extends Component
         'post.title' => ['required', 'max:8'],
         'post.body' => ['required'],
     ];
+
+    public function mount()
+    {
+        $this->post = new Post;
+    }
 
     public function updatingWord()
     {
@@ -36,11 +42,18 @@ class PostList extends Component
 
     public function register()
     {
-        $data = $this->validate();
+        $this->validate();
 
-        Post::create($data['post']);
+        $this->post->save();
 
-        $this->reset('post');
+        $this->post = new Post;
+
+        // $this->post->title = '';
+        // $this->post->body = '';
+
+        // Post::create($data['post']);
+
+        // $this->reset('post');
 
         // $this->title = '';
         // $this->body = '';
