@@ -16,6 +16,10 @@ class PostList extends Component
         'word' => ['except' => ''],
     ];
 
+    protected $listeners = [
+        'created-post' => '$refresh',
+    ];
+
     public function updatingWord()
     {
         $this->resetPage();

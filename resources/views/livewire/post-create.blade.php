@@ -10,6 +10,22 @@
         </div>
         <div>
             <input type="submit" value="送信する">
+            <span id="created-user-message" style="display: none">登録しました。</span>
         </div>
     </form>
+
+    @push('js')
+    <script>
+        Livewire.on('created-post', () => {
+            const messageBox = document.getElementById('created-user-message');
+
+            messageBox.style.display = 'inline';
+
+            setTimeout(() => {
+                messageBox.style.display = 'none';
+            }, 1000);
+        });
+    </script>
+    @endpush
+
 </div>
