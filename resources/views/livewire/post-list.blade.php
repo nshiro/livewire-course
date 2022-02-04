@@ -9,13 +9,21 @@
 
     <hr>
 
-    <ul>
+    <livewire:post-edit>
+
+    <hr>
+
+    <table>
         @foreach($posts as $post)
-        <li wire:key="post-{{ $post->id }}">
-            {{ $post->title }}
-        </li>
+        <tr wire:key="post-{{ $post->id }}">
+            <td>{{ $post->id }}</td>
+            <td>
+                {{ $post->title }}
+            </td>
+            <td>変更する</td>
+        </tr>
         @endforeach
-    </ul>
+    </table>
 
     <div>
         {{ $posts->links() }}
