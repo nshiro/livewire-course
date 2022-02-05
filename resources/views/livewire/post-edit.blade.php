@@ -1,4 +1,4 @@
-<div x-data="{open: true}">
+<div x-data="{open: @entangle('showModal').defer}">
 
     <input type="button" value="表示を切り替える" x-on:click="open = ! open">
 

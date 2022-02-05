@@ -8,6 +8,7 @@ use Livewire\Component;
 class PostEdit extends Component
 {
     public $post;
+    public $showModal = false;
 
     protected $rules = [
         'post.title' => ['required', 'max:8'],
@@ -21,6 +22,8 @@ class PostEdit extends Component
     public function showModal(Post $post)
     {
         $this->post = $post;
+
+        $this->showModal = true;
     }
 
     public function render()
