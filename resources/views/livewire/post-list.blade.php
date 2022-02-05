@@ -20,7 +20,7 @@
             <td>
                 {{ $post->title }}
             </td>
-            <td>変更する</td>
+            <td wire:click="$emitTo('post-edit', 'showModal', {{ $post->id }})">変更する</td>
         </tr>
         @endforeach
     </table>
