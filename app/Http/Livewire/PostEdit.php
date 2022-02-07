@@ -37,7 +37,7 @@ class PostEdit extends Component
 
         $this->post->save();
 
-        // $this->emit('created-post');
+        $this->emit('updated-post');
 
         $this->showModal = false;
     }

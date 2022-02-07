@@ -11,6 +11,7 @@ class PostList extends Component
     use WithPagination;
 
     public $word;
+    public $updatedPost = false;
 
     protected $queryString = [
         'word' => ['except' => ''],
@@ -18,7 +19,13 @@ class PostList extends Component
 
     protected $listeners = [
         'created-post' => '$refresh',
+        'updated-post' => 'updatedPost',
     ];
+
+    public function updatedPost()
+    {
+        $this->updatedPost = true;
+    }
 
     public function updatingWord()
     {
