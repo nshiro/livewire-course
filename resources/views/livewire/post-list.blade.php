@@ -13,7 +13,8 @@
 
 
     <div style="height:30px">
-        @if($this->updatedPost)
+        {{-- @if($this->updatedPost) --}}
+        @if(session('updatedPost'))
         <!-- 毎回毎回、別の div と認識させる為に、ランダムな wire:key を付与する。そうする事で、毎回 JS が実行される -->
         <div wire:key="{{ Str::random() }}"
             x-data="{show: false}"
