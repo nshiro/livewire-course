@@ -1,6 +1,6 @@
 <div>
 <x-modal wire:model="showModal">
-    <form wire:submit.prevent="register" class="my-5 bg-red-100">
+    <form wire:submit.prevent="update" class="my-5 bg-red-100">
         <div>
             タイトル：<input type="text" wire:model.lazy="post.title">
             <div>@error('post.title')<span style="color:red">{{ $message }}</span>@enderror</div>
@@ -10,7 +10,7 @@
             <div>@error('post.body')<span style="color:red">{{ $message }}</span>@enderror</div>
         </div>
         <div>
-            <input type="submit" value="送信する">
+            <input type="submit" value="変更する">
         </div>
     </form>
 </x-modal>

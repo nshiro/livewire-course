@@ -11,7 +11,7 @@ class PostEdit extends Component
     public $showModal = false;
 
     protected $rules = [
-        'post.title' => ['required', 'max:8'],
+        'post.title' => ['required', 'max:20'],
         'post.body' => ['required'],
     ];
 
@@ -24,6 +24,22 @@ class PostEdit extends Component
         $this->post = $post;
 
         $this->showModal = true;
+    }
+
+    public function updated($key)
+    {
+        $this->validateOnly($key);
+    }
+
+    public function update()
+    {
+        $this->validate();
+
+        $this->post->save();
+
+        // $this->emit('created-post');
+
+        $this->showModal = false;
     }
 
     public function render()
