@@ -9,6 +9,13 @@
             本文：<textarea wire:model.lazy="post.body" cols="30" rows="5"></textarea>
             <div>@error('post.body')<span style="color:red">{{ $message }}</span>@enderror</div>
         </div>
+
+        {{-- form 要素に enctype="multipart/form-data" を付ける必要は無し --}}
+        <div>
+            写真：<input type="file" wire:model.lazy="photo">
+            <div>@error('photo') <span style="color:red">{{ $message }}</span>@enderror</div>
+        </div>
+
         <div>
             <input type="submit" value="変更する">
         </div>

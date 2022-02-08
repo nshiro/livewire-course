@@ -38,6 +38,7 @@
             <td>{{ $post->id }}</td>
             <td>
                 {{ $post->title }}
+                <span>@if($post->photo)<img src="{{ Storage::url($post->photo) }}" width="50" height="50">@endif</span>
             </td>
             <td wire:click="$emitTo('post-edit', 'showModal', {{ $post->id }})">変更する</td>
             <td onclick="confirm('削除してもよろしいですか？') &&
