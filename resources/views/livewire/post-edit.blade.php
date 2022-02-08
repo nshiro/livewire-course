@@ -14,6 +14,13 @@
         <div>
             写真：<input type="file" wire:model.lazy="photo">
             <div>@error('photo') <span style="color:red">{{ $message }}</span>@enderror</div>
+
+            {{-- ?-> は、PHP8.0からの新機能の Nullsafe Operator（nullsafe 演算子） --}}
+            @if($photo?->isPreviewable())
+                <img src="{{ $photo->temporaryUrl() }}" width=50 height=50>
+            @elseif ($post?->photo)
+                <img src="{{ Storage::url($post->photo) }}" width=50 height=50>
+            @endif
         </div>
 
         <div>
