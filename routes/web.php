@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Diffing;
 use App\Http\Livewire\PostList;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,4 @@ Route::get('counter', function () {
 });
 
 Route::get('posts', PostList::class);
+Route::get('diffing', Diffing::class);
