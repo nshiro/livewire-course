@@ -20,7 +20,13 @@ class PostList extends Component
     protected $listeners = [
         'created-post' => '$refresh',
         'updated-post' => 'updatedPost',
+        'deleted-post' => 'deletedPost',
     ];
+
+    public function deletedPost(Post $post)
+    {
+        $post->delete();
+    }
 
     public function updatedPost()
     {

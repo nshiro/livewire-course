@@ -40,6 +40,8 @@
                 {{ $post->title }}
             </td>
             <td wire:click="$emitTo('post-edit', 'showModal', {{ $post->id }})">変更する</td>
+            <td onclick="confirm('削除してもよろしいですか？') &&
+            Livewire.emit('deleted-post', {{ $post->id }})">削除する</td>
         </tr>
         @endforeach
     </table>
