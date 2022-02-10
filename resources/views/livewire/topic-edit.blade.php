@@ -22,7 +22,7 @@
                 タイトル：<input type="text" wire:model.defer="topic.title">
                 <div>@error('topic.title') <span style="color:red">{{ $message }}</span>@enderror</div>
             </div>
-            <div>
+            <div wire:ignore>
                 本文：
                 <textarea wire:model.defer="topic.body" cols="30" rows="10"
                     x-data x-init="mdeInit($el)"></textarea>
