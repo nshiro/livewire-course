@@ -25,7 +25,7 @@
             <div wire:ignore>
                 本文：
                 <textarea wire:model.defer="topic.body" cols="30" rows="10"
-                    x-data x-init="mdeInit($el)"></textarea>
+                    x-data x-init="mdeInit($el, $dispatch)"></textarea>
                 <div>@error('topic.body') <span style="color:red">{{ $message }}</span>@enderror</div>
             </div>
 
@@ -41,10 +41,14 @@ https://simplemde.com/
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplemde@1.11.2/dist/simplemde.min.css">
 <script src="https://cdn.jsdelivr.net/npm/simplemde@1.11.2/dist/simplemde.min.js"></script>
 <script>
-function mdeInit(el) {
+function mdeInit(el, $dispatch) {
     const mde = new SimpleMDE({
         element: el,
         spellChecker: false,
+    });
+
+    mde.codemirror.on("change", function(){
+        $dispatch('input', mde.value());
     });
 }
 
