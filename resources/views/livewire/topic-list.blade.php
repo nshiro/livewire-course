@@ -10,6 +10,7 @@
             <td>タイトル</td>
             <td>本文</td>
             <td>変更</td>
+            <td>削除</td>
         </tr>
 
         @foreach($topics as $topic)
