@@ -1,5 +1,9 @@
 <div>
     <h1>トピックス一覧</h1>
+
+    <input type="button" wire:click="$refresh" value="リフレッシュする">
+    {{ time() }}
+
     <table>
         <tr>
             <td>連番</td>

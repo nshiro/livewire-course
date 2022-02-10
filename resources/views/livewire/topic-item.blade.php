@@ -1,4 +1,3 @@
-<div>
     <tr>
         <td>{{ $topic->id }}</td>
         <td>
@@ -9,4 +8,4 @@
         </td>
         <td>変更する</td>
     </tr>
-</div>
+
