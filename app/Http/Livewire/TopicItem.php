@@ -14,12 +14,12 @@ class TopicItem extends Component
     //     $this->topic = $topic;
     // }
 
-    public function deleteTopic()
-    {
-        $this->topic->delete();
-
-        $this->emitUp('topic-deleted');
-    }
+    // public function deleteTopic()
+    // {
+    //     $this->topic->delete();
+    //
+    //     $this->emitUp('topic-deleted');
+    // }
 
     public function render()
     {
