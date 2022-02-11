@@ -39,6 +39,26 @@ span[aria-current=page] > span {
 
 @livewireScripts
 
+<script>
+// デフォルトの「This page has expired...」 の表示をカスタマイズする
+// 「キャンセル」した際、onPageExpired() を使った方式だと1回しか聞かれないので、
+// 従来からの onError() を使った方が良いのかも知れない。
+
+// Ver.2.9.0 以降で使える
+// 参考：https://laravel-livewire.com/docs/2.x/deployment#page-expired-dialog-and-hook
+Livewire.onPageExpired((response, message) => {
+  confirm('ページの有効期限が過ぎました。画面をリフレッシュしますか？') && window.location.reload();
+});
+
+// 従来版
+// window.livewire.onError(statusCode => {
+//   if (statusCode === 419) {
+//     confirm('ページの有効期限が過ぎました。画面をリフレッシュしますか？') && window.location.reload();
+//     return false;
+//   }
+// });
+</script>
+
 @stack('js')
 
 </body>
