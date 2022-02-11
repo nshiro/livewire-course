@@ -10,6 +10,7 @@
             <td>タイトル</td>
             <td>本文</td>
             <td>変更</td>
+            <td>表示</td>
             <td>削除</td>
         </tr>
 
@@ -38,6 +39,15 @@ function confirmDeleteTopic(topicId) {
     }
   })
 }
+function topicModal(title, html) {
+  Swal.fire({
+    title: title,
+    html: html,
+  })
+}
+Livewire.on('show-topic', (topic) => {
+  topicModal(topic.title, topic.body)
+})
 </script>
 @endpush
 

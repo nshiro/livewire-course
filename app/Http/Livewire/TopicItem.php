@@ -8,6 +8,13 @@ class TopicItem extends Component
 {
     public $topic;
 
+    public function showTopic()
+    {
+        $this->topic->body = \Str::of($this->topic->body)->markdown();
+
+        $this->emit('show-topic', $this->topic);
+    }
+
     // 書かなくても自動で大丈夫（変数名と同じ場合）
     // public function mount($topic)
     // {
