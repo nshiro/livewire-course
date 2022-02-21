@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\Diffing;
+use App\Http\Livewire\Form;
 use App\Http\Livewire\PostList;
 use App\Http\Livewire\TopicEdit;
 use App\Http\Livewire\TopicList;
@@ -30,3 +31,5 @@ Route::get('diffing', Diffing::class);
 
 Route::get('topics', TopicList::class)->name('topic.list');
 Route::get('topics/edit/{topic}', TopicEdit::class)->name('topic.edit');
+
+Route::get('form', Form::class);
